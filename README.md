@@ -1,50 +1,35 @@
 # snowflake_proj1_warehouse_setup_and_basics
-TASK:1 Objective: Set up a new virtual warehouse:
+Project Overview:
+This project focuses on the fundamental setup of Snowflake. It covers creating a virtual warehouse, setting up databases and tables, inserting sample data, and loading external data from Amazon S3 into Snowflake. The aim is to build a strong foundation for future Snowflake projects involving automation, data ingestion, and analytics.
 
-Task Description: Create a virtual warehouse in Snowflake with the name demo, and configure the following settings:
-Warehouse Type: Standard
-Size: X-Small
-Auto-Resume: Enabled
-Auto-Suspend: Enabled and set to 5 minutes
+Prerequisites:
+Active Snowflake account
+Access to Snowflake Web UI or SnowSQL
+AWS credentials with permissions to access the provided S3 bucket
 
-TASK:2 Objective: Create a database, table, and load sales data.
+Tasks Performed:-
+Task 1: Virtual Warehouse Setup
+Created a warehouse named demo
+Configured it as a Standard type, X-Small size
+Enabled auto-resume and auto-suspend (set to 5 minutes) for cost efficiency
 
-Task Description: Select the demo warehouse to execute all SQL commands.
-Create a database named sales_db.
-Create a table named sales in the public schema with the following columns:
-order_id (Integer)
-customer_id (Integer)
-order_date (Date)
-product (String, 100 characters)
-quantity (Integer)
-price (Numeric)
-Insert the following dummy sales data into the sales table:
+Task 2: Database and Table Creation
+Created a database named sales_db
+Designed a table named sales in the public schema
+Inserted a few sample records to validate the setup
+Queried the table to ensure data retrieval worked correctly
 
-(1, 101, '2024-01-15', 'Laptop', 2, 1200.00),
-(2, 102, '2024-02-05', 'Phone', 1, 800.00),
-(3, 103, '2024-02-20', 'Headphones', 3, 150.00)
+Task 3: Data Loading from S3
+Created a new database named sales_s3_db
+Designed a table named sales_data_s3 with customer and sales details
+Loaded data from the S3 bucket snowflake-hands-on-data/sample_data_basic/sales_sample_data.csv
+Applied configurations like comma delimiter and skipping the header row
+Verified that all rows were ingested successfully
 
-Query the table to retrieve all sales data.
-
-
-TASK:3 Objective: Load data from the specified S3 path into Snowflake and verify the data.
-
-Task Description:Use the demo warehouse for executing all SQL commands.
-Create a database named sales_s3_db.
-Create a table named sales_data_s3 with the following columns:
-order_id (Integer)
-customer_id (Integer)
-customer_name (String, 100 characters)
-order_date (Date)
-product (String, 100 characters)
-quantity (Integer)
-price (Numeric)
-complete_address (String, 255 characters)
-
-Load the CSV data from the S3 path s3://snowflake-hands-on-data/sample_data_basic/sales_sample_data.csv into the sales_data_s3 table using the provided AWS credentials (in Attachment). Ensure to:-
-Set the delimiter to a comma (,).
-Skip the header row of the CSV file.
-Query the sales_data_s3 table to verify that all data is loaded correctly.
+Real-World Relevance:
+Warehouse Setup ensures queries run efficiently and cost effectively
+Databases and Tables provide structured environments for organizing transactional and analytical data
+S3 Data Loading reflects a common enterprise use case where raw data is stored in cloud storage and ingested into Snowflake for reporting and BI
 
 
 
