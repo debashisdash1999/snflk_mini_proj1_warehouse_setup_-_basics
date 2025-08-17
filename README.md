@@ -1,4 +1,4 @@
-# snflk_mini_proj1_warehouse_setup_-_basics
+# snowflake_proj1_warehouse_setup_and_basics
 TASK:1 Objective: Set up a new virtual warehouse:
 
 Task Description: Create a virtual warehouse in Snowflake with the name demo, and configure the following settings:
